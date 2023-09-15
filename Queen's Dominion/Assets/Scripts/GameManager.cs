@@ -93,7 +93,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         // set the UI to show who's won
         Invoke("GoBackToMenu", 3.0f);
         GameUI.instance.SetWinText(player.photonPlayer.NickName);
-
     }
 
     void GoBackToMenu()

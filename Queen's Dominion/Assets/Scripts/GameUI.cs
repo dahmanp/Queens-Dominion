@@ -8,7 +8,11 @@ using Photon.Pun;
 public class GameUI : MonoBehaviour
 {
     public PlayerUIContainer[] playerContainers;
+    public GameObject MiddayWin;
+    public GameObject MidnightWin;
     public TextMeshProUGUI winText;
+    public Slider nightSlider;
+    public Slider daySlider;
 
     // instance
     public static GameUI instance;
@@ -63,8 +67,17 @@ public class GameUI : MonoBehaviour
 
     public void SetWinText(string winnerName)
     {
-        winText.gameObject.SetActive(true);
-        winText.text = winnerName + " wins";
+        if (nightSlider.value == 20)
+        {
+            MidnightWin.gameObject.SetActive(true);
+            winText.text = winnerName + " ended as the queen!";
+            winText.gameObject.SetActive(true);
+        } else if (daySlider.value == 20)
+        {
+            MiddayWin.gameObject.SetActive(true);
+            winText.text = winnerName + " ended as the queen!";
+            winText.gameObject.SetActive(true);
+        }
     }
 }
 

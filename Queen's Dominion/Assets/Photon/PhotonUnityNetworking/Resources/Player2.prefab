@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 309950106239775883}
   - component: {fileID: 348206363953081819}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f64b92c7098a4c54cac8a8c640341ae2, type: 2}
+  - {fileID: 2100000, guid: 7c7d0ef9f4befcc4db27b3e56b1eb211, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,9 +107,6 @@ MonoBehaviour:
   hatObject: {fileID: 268622882398216481}
   curHatTime: 0
   rig: {fileID: 6486323154351330379}
-  team: 0
-  midnight: {fileID: 2100000, guid: f64b92c7098a4c54cac8a8c640341ae2, type: 2}
-  midday: {fileID: 2100000, guid: 7c7d0ef9f4befcc4db27b3e56b1eb211, type: 2}
 --- !u!54 &6486323154351330379
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -245,7 +242,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: d001b07a5b49dca45a42de170f0bd974, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f64b92c7098a4c54cac8a8c640341ae2, type: 2}
+      objectReference: {fileID: 2100000, guid: 7c7d0ef9f4befcc4db27b3e56b1eb211, type: 2}
     - target: {fileID: 919132149155446097, guid: d001b07a5b49dca45a42de170f0bd974, type: 3}
       propertyPath: m_Name
       value: queen

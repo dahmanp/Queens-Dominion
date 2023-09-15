@@ -20,9 +20,12 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     [Header("Components")]
     public Rigidbody rig;
     public Player photonPlayer;
+    public bool team; // midnight is true midday is false
+    public Material midnight;
+    public Material midday;
 
-    // called when the player object is instantiated
-    [PunRPC]
+// called when the player object is instantiated
+[PunRPC]
     public void Initialize(Player player)
     {
         photonPlayer = player;
@@ -30,14 +33,23 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         GameManager.instance.players[id - 1] = this;
         // give the first player the hat
 
-        // if this isn't our local player, disable physics as that's
-        // controlled by the user and synced to all other clients
-        //if (photonView.IsMine)
-            //rig.isKinematic = true;
-
-        // give the first player the hat
         if (id == 1)
+        {
             GameManager.instance.GiveHat(id, true);
+        }
+
+        if (id % 2 == 0)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = midday;
+            team = false;
+            this.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = midday;
+        }
+        else
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = midnight;
+            team = true;
+            this.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = midnight;
+        }
     }
 
     void Update()
@@ -60,7 +72,9 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         {
             Move();
             if (Input.GetKeyDown(KeyCode.Space))
+            {
                 TryJump();
+            }
             // track the amount of time we're wearing the hat
             if (hatObject.activeInHierarchy)
             {
